@@ -131,21 +131,16 @@ def birds_on_start(hashMap,_files=None,_data=None):
 
 
 def input_data(hashMap,_files=None,_data=None):
-  if hashMap.get("listener")=="btn_post":
-      "name"
-      hashMap.put("toast",str(int(hashMap.get("a"))+int(hashMap.get("b"))))
-
-  return hashMap
-
-def test_inp(name:str, desc:str):
-    with open ('db.json', encoding='utf-8') as db:
-        db = json.load(db)
-        target = db["birds"]
-        print(target)
-        commit = {"name": name,
-                  "desc": desc}
+    if hashMap.get("listener")=="btn_post":
+        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
+            db = json.load(db)
+        commit = {"name": hashMap.get("input_name"),
+                  "desc": hashMap.get("input_desc"),
+                  "image": "/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/",
+                  "status": "false"}
         db["birds"].append(commit)
-    
-        print(f'Добавлено{name},{desc} ', db)
-    pass
+        with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
+            json.dump(db, fp, ensure_ascii=False)
+
+        return hashMap
 
