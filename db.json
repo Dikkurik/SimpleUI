@@ -1,0 +1,23 @@
+{"birds":[
+    {
+    "name":"Снегирь",
+    "image":"images/snegir.jpg",
+    "desc":"Это Снегирь",
+    "status": "False"
+    }
+    ,
+    {
+        "name":"Чайка",
+        "image":"images/chaika.jpg",
+        "desc":"Это Чайка",
+        "status": "False"
+    }
+    ,
+    {
+        "name":"Ласточка",
+        "image":"images/snegir.jpg",
+        "desc":"Это Снегирь",
+        "status": "False"
+    }
+]
+}
