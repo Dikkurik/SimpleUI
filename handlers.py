@@ -1,6 +1,8 @@
 from PIL import Image
 import json, random, os
 
+filename = ()
+
 def birds_on_start(hashMap,_files=None,_data=None):
     j = { "customcards":         {
         "options":{
@@ -63,32 +65,14 @@ def birds_on_start(hashMap,_files=None,_data=None):
                 "TextBold": True,
                 "TextItalic": False,
                 "BackgroundColor": "",
-                "width": "50",
-                "height": "50",
+                "width": "75",
+                "height": "75",
                 "weight": 0
             }]
 
             },
             ]
         },
-
-        {
-            "type": "Picture",
-            "show_by_condition": "",
-            "Value": "@pic",
-            "NoRefresh": False,
-            "document_type": "",
-            "mask": "",
-            "Variable": "",
-            "TextSize": "16",
-            "TextColor": "#DB7093",
-            "TextBold": True,
-            "TextItalic": False,
-            "BackgroundColor": "",
-            "width": "match_parent",
-            "height": "wrap_content",
-            "weight": 2
-            },
 
         {
             "type": "TextView",
@@ -131,16 +115,16 @@ def birds_on_start(hashMap,_files=None,_data=None):
 
 
 def input_data(hashMap,_files=None,_data=None):
+    global filename
     if hashMap.get("listener")=="btn_post":
         with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
             db = json.load(db)
         commit = {"name": hashMap.get("input_name"),
                   "desc": hashMap.get("input_desc"),
-                  "image": "/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/",
+                  "image": hashMap.get("photo"),
                   "status": "false"}
         db["birds"].append(commit)
         with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
             json.dump(db, fp, ensure_ascii=False)
 
         return hashMap
-
