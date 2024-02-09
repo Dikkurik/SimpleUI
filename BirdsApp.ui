@@ -1,0 +1,77 @@
+{
+    "ClientConfiguration": {
+        "ConfigurationName": "BirdsApp",
+        "ConfigurationDescription": "Разработка новой конфигурации SimpleUI",
+        "ConfigurationVersion": "0.0.2",
+        "Processes": [
+            {
+                "type": "Process",
+                "ProcessName": "Птицы",
+                "PlanFactHeader": "План-факт",
+                "DefineOnBackPressed": false,
+                "hidden": false,
+                "login_screen": false,
+                "SC": false,
+                "Operations": [
+                    {
+                        "type": "Operation",
+                        "Name": "Основной экран",
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": false,
+                        "handleKeyUp": false,
+                        "noConfirmation": false,
+                        "hideBottomBarScreen": false,
+                        "onlineOnStart": false,
+                        "send_when_opened": false,
+                        "onlineOnInput": false,
+                        "DefOnlineOnCreate": "",
+                        "DefOnlineOnInput": "",
+                        "DefOnCreate": "birds_on_start",
+                        "DefOnInput": "",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "CardsLayout",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@cards",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "Picture",
+                                        "height": "wrap_content",
+                                        "width": "wrap_content",
+                                        "weight": "0",
+                                        "Value": "@image",
+                                        "Variable": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "ConfigurationSettings": {
+            "uid": "957d0414449e48338320a88ae56ba81d"
+        },
+        "ConfigurationTags": "Py,off-line",
+        "PyHandlers": "ZnJvbSBQSUwgaW1wb3J0IEltYWdlCmltcG9ydCBqc29uLCByYW5kb20sIG9zCgpiaXJkcyA9IHsiYmlyZHMiOlsKICAgIHsKICAgICJuYW1lIjoi0KHQvdC10LPQuNGA0YwiLAogICAgImltYWdlIjoiaW1hZ2VzL3NuZWdpci5qcGciLAogICAgImRlc2MiOiLQrdGC0L4g0KHQvdC10LPQuNGA0YwiLAogICAgInN0YXR1cyI6ICJGYWxzZSIKICAgIH0KICAgICwKICAgIHsKICAgICAgICAibmFtZSI6ItCn0LDQudC60LAiLAogICAgICAgICJpbWFnZSI6ImltYWdlcy9jaGFpa2EuanBnIiwKICAgICAgICAiZGVzYyI6ItCt0YLQviDQp9Cw0LnQutCwIiwKICAgICAgICAic3RhdHVzIjogIkZhbHNlIgogICAgfQogICAgLAogICAgewogICAgICAgICJuYW1lIjoi0JvQsNGB0YLQvtGH0LrQsCIsCiAgICAgICAgImltYWdlIjoiaW1hZ2VzL3NuZWdpci5qcGciLAogICAgICAgICJkZXNjIjoi0K3RgtC+INCh0L3QtdCz0LjRgNGMIiwKICAgICAgICAic3RhdHVzIjogIkZhbHNlIgogICAgfQpdCn0KCgoKZGVmIGJpcmRzX29uX3N0YXJ0KGhhc2hNYXAsX2ZpbGVzPU5vbmUsX2RhdGE9Tm9uZSk6CiAgICBqID0geyAiY3VzdG9tY2FyZHMiOiAgICAgICAgIHsKICAgICAgICAib3B0aW9ucyI6ewogICAgICAgICAgInNlYXJjaF9lbmFibGVkIjpUcnVlLAogICAgICAgICAgInNhdmVfcG9zaXRpb24iOlRydWUKICAgICAgICB9LAoKICAgICAgICAibGF5b3V0IjogewogICAgICAgICJ0eXBlIjogIkxpbmVhckxheW91dCIsCiAgICAgICAgIm9yaWVudGF0aW9uIjogInZlcnRpY2FsIiwKICAgICAgICAiaGVpZ2h0IjogIm1hdGNoX3BhcmVudCIsCiAgICAgICAgIndpZHRoIjogIm1hdGNoX3BhcmVudCIsCiAgICAgICAgIndlaWdodCI6ICIwIiwKICAgICAgICAiRWxlbWVudHMiOiBbCiAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJMaW5lYXJMYXlvdXQiLAogICAgICAgICAgICAib3JpZW50YXRpb24iOiAiaG9yaXpvbnRhbCIsCiAgICAgICAgICAgICJoZWlnaHQiOiAid3JhcF9jb250ZW50IiwKICAgICAgICAgICAgIndpZHRoIjogIm1hdGNoX3BhcmVudCIsCiAgICAgICAgICAgICJ3ZWlnaHQiOiAiMCIsCiAgICAgICAgICAgICJFbGVtZW50cyI6IAoKICAgICAgICAgICAgW3sKICAgICAgICAgICAgInR5cGUiOiAiUGljdHVyZSIsCiAgICAgICAgICAgICJzaG93X2J5X2NvbmRpdGlvbiI6ICIiLAogICAgICAgICAgICAiVmFsdWUiOiAiQHBpYyIsCiAgICAgICAgICAgICJOb1JlZnJlc2giOiBGYWxzZSwKICAgICAgICAgICAgImRvY3VtZW50X3R5cGUiOiAiIiwKICAgICAgICAgICAgIm1hc2siOiAiIiwKICAgICAgICAgICAgIlZhcmlhYmxlIjogIiIsCiAgICAgICAgICAgICJUZXh0U2l6ZSI6ICIxNiIsCiAgICAgICAgICAgICJUZXh0Q29sb3IiOiAiI0RCNzA5MyIsCiAgICAgICAgICAgICJUZXh0Qm9sZCI6IFRydWUsCiAgICAgICAgICAgICJUZXh0SXRhbGljIjogRmFsc2UsCiAgICAgICAgICAgICJCYWNrZ3JvdW5kQ29sb3IiOiAiIiwKICAgICAgICAgICAgIndpZHRoIjogIm1hdGNoX3BhcmVudCIsCiAgICAgICAgICAgICJoZWlnaHQiOiAid3JhcF9jb250ZW50IiwKICAgICAgICAgICAgIndlaWdodCI6IDIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJMaW5lYXJMYXlvdXQiLAogICAgICAgICAgICAib3JpZW50YXRpb24iOiAidmVydGljYWwiLAogICAgICAgICAgICAiaGVpZ2h0IjogIndyYXBfY29udGVudCIsCiAgICAgICAgICAgICJ3aWR0aCI6ICJtYXRjaF9wYXJlbnQiLAogICAgICAgICAgICAid2VpZ2h0IjogIjEiLAogICAgICAgICAgICAiRWxlbWVudHMiOiAKCiAgICAgICAgICAgIFt7CiAgICAgICAgICAgICAgICAidHlwZSI6ICJUZXh0VmlldyIsCiAgICAgICAgICAgICAgICAic2hvd19ieV9jb25kaXRpb24iOiAiIiwKICAgICAgICAgICAgICAgICJWYWx1ZSI6ICJAbmFtZSIsCiAgICAgICAgICAgICAgICAiTm9SZWZyZXNoIjogRmFsc2UsCiAgICAgICAgICAgICAgICAiZG9jdW1lbnRfdHlwZSI6ICIiLAogICAgICAgICAgICAgICAgIm1hc2siOiAiIiwKICAgICAgICAgICAgICAgICJWYXJpYWJsZSI6ICIiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ0eXBlIjogIlRleHRWaWV3IiwKICAgICAgICAgICAgICAgICJzaG93X2J5X2NvbmRpdGlvbiI6ICIiLAogICAgICAgICAgICAgICAgIlZhbHVlIjogIkBkZXNjIiwKICAgICAgICAgICAgICAgICJOb1JlZnJlc2giOiBGYWxzZSwKICAgICAgICAgICAgICAgICJkb2N1bWVudF90eXBlIjogIiIsCiAgICAgICAgICAgICAgICAibWFzayI6ICIiLAogICAgICAgICAgICAgICAgIlZhcmlhYmxlIjogIiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgeyAgIAogICAgICAgICAgICAgICAgInR5cGUiOiAiUGljdHVyZSIsCiAgICAgICAgICAgICAgICAic2hvd19ieV9jb25kaXRpb24iOiAiIiwKICAgICAgICAgICAgICAgICJWYWx1ZSI6ICJAaW1hZ2UiLAogICAgICAgICAgICAgICAgIk5vUmVmcmVzaCI6IEZhbHNlLAogICAgICAgICAgICAgICAgImRvY3VtZW50X3R5cGUiOiAiIiwKICAgICAgICAgICAgICAgICJtYXNrIjogIiIsCiAgICAgICAgICAgICAgICAiVmFyaWFibGUiOiAiIiwKICAgICAgICAgICAgICAgICJUZXh0U2l6ZSI6ICIxNiIsCiAgICAgICAgICAgICAgICAiVGV4dENvbG9yIjogIiNEQjcwOTMiLAogICAgICAgICAgICAgICAgIlRleHRCb2xkIjogVHJ1ZSwKICAgICAgICAgICAgICAgICJUZXh0SXRhbGljIjogRmFsc2UsCiAgICAgICAgICAgICAgICAiQmFja2dyb3VuZENvbG9yIjogIiIsCiAgICAgICAgICAgICAgICAid2lkdGgiOiAiNTAiLAogICAgICAgICAgICAgICAgImhlaWdodCI6ICI1MCIsCiAgICAgICAgICAgICAgICAid2VpZ2h0IjogMAogICAgICAgICAgICB9XQoKICAgICAgICAgICAgfSwKICAgICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJUZXh0VmlldyIsCiAgICAgICAgICAgICJzaG93X2J5X2NvbmRpdGlvbiI6ICIiLAogICAgICAgICAgICAiVmFsdWUiOiAiQGRlc2MiLAogICAgICAgICAgICAiTm9SZWZyZXNoIjogRmFsc2UsCiAgICAgICAgICAgICJkb2N1bWVudF90eXBlIjogIiIsCiAgICAgICAgICAgICJtYXNrIjogIiIsCiAgICAgICAgICAgICJWYXJpYWJsZSI6ICIiLAogICAgICAgICAgICAiVGV4dFNpemUiOiAiLTEiLAogICAgICAgICAgICAiVGV4dENvbG9yIjogIiM2RjkzOTMiLAogICAgICAgICAgICAiVGV4dEJvbGQiOiBGYWxzZSwKICAgICAgICAgICAgIlRleHRJdGFsaWMiOiBUcnVlLAogICAgICAgICAgICAiQmFja2dyb3VuZENvbG9yIjogIiIsCiAgICAgICAgICAgICJ3aWR0aCI6ICJ3cmFwX2NvbnRlbnQiLAogICAgICAgICAgICAiaGVpZ2h0IjogIndyYXBfY29udGVudCIsCiAgICAgICAgICAgICJ3ZWlnaHQiOiAwCiAgICAgICAgfQogICAgICAgIF0KICAgIH0KCn0KfSAgIAogICAgIyB3aXRoIG9wZW4oJ2RiLmpzb24nLCBlbmNvZGluZz0ndXRmLTgnKSBhcyBkYjoKICAgICMgICAgIGRiID0ganNvbi5sb2FkKGRiKQogICAgIyBwcmludChkYlsnYmlyZHMnXSkKICAgIGpbImN1c3RvbWNhcmRzIl1bImNhcmRzZGF0YSJdPVtdCiAgICBmb3IgaSBpbiBiaXJkc1snYmlyZHMnXToKICAgICAgICBjb21taXQgPSAgewogICAgICAgICJrZXkiOiBzdHIoaSksCiAgICAgICAgIm5hbWUiOiBpWyJuYW1lIl0sCiAgICAgICAgImRlc2MiOiBpWydkZXNjJ10sCiAgICAgICAgImltYWdlIjogaVsnaW1hZ2UnXQogICAgfQogICAgICAgIGpbImN1c3RvbWNhcmRzIl1bImNhcmRzZGF0YSJdLmFwcGVuZChjb21taXQpCgogICAgd2l0aCBvcGVuKCd0ZXN0LnR4dCcsICd3JywgZW5jb2Rpbmc9J3V0Zi04JykgYXMgZmlsZToKICAgICAgICAgICAgZmlsZS53cml0ZShzdHIoaikpCgogICAgaGFzaE1hcC5wdXQoImNhcmRzIixqc29uLmR1bXBzKGosZW5zdXJlX2FzY2lpPUZhbHNlKS5lbmNvZGUoJ3V0ZjgnKS5kZWNvZGUoKSkKCiAgICByZXR1cm4gaGFzaE1hcAoKCmRlZiBpbnB1dF9kYXRhKGhhc2hNYXAsX2ZpbGVzPU5vbmUsX2RhdGE9Tm9uZSk6CiAgaWYgaGFzaE1hcC5nZXQoImxpc3RlbmVyIik9PSJidG5fcG9zdCI6CiAgICAgICJuYW1lIgogICAgICBoYXNoTWFwLnB1dCgidG9hc3QiLHN0cihpbnQoaGFzaE1hcC5nZXQoImEiKSkraW50KGhhc2hNYXAuZ2V0KCJiIikpKSkKCiAgcmV0dXJuIGhhc2hNYXAKCmRlZiB0ZXN0X2lucChuYW1lOnN0ciwgZGVzYzpzdHIpOgogICAgd2l0aCBvcGVuICgnZGIuanNvbicsIGVuY29kaW5nPSd1dGYtOCcpIGFzIGRiOgogICAgICAgIGRiID0ganNvbi5sb2FkKGRiKQogICAgICAgIHRhcmdldCA9IGRiWyJiaXJkcyJdCiAgICAgICAgcHJpbnQodGFyZ2V0KQogICAgICAgIGNvbW1pdCA9IHsibmFtZSI6IG5hbWUsCiAgICAgICAgICAgICAgICAgICJkZXNjIjogZGVzY30KICAgICAgICBkYlsiYmlyZHMiXS5hcHBlbmQoY29tbWl0KQogICAgCiAgICAgICAgcHJpbnQoZifQlNC+0LHQsNCy0LvQtdC90L57bmFtZX0se2Rlc2N9ICcsIGRiKQogICAgICAgIHdpdGggb3BlbigndGVzdC50eHQnLCAndycsIGVuY29kaW5nPSd1dGYtOCcpIGFzIGZpbGU6CiAgICAgICAgICAgIGZpbGUud3JpdGUoc3RyKGRiKSkKICAgIHBhc3MKCiMgdGVzdF9pbnAoJ9Ca0YPRgNGC0YbQsCcsICfQrdGC0L4g0LrRg9GA0LjRhtCwJyk=",
+        "RunPython": true,
+        "StyleTemplates": [
+            {
+                "name": "Новый шаблон стиля"
+            }
+        ]
+    }
+}
