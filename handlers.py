@@ -1,32 +1,6 @@
 from PIL import Image
 import json, random, os
 
-birds = {"birds":[
-    {
-    "name":"Снегирь",
-    "image":"images/snegir.jpg",
-    "desc":"Это Снегирь",
-    "status": "False"
-    }
-    ,
-    {
-        "name":"Чайка",
-        "image":"images/chaika.jpg",
-        "desc":"Это Чайка",
-        "status": "False"
-    }
-    ,
-    {
-        "name":"Ласточка",
-        "image":"images/snegir.jpg",
-        "desc":"Это Снегирь",
-        "status": "False"
-    }
-]
-}
-
-
-
 def birds_on_start(hashMap,_files=None,_data=None):
     j = { "customcards":         {
         "options":{
@@ -49,23 +23,7 @@ def birds_on_start(hashMap,_files=None,_data=None):
             "weight": "0",
             "Elements": 
 
-            [{
-            "type": "Picture",
-            "show_by_condition": "",
-            "Value": "@pic",
-            "NoRefresh": False,
-            "document_type": "",
-            "mask": "",
-            "Variable": "",
-            "TextSize": "16",
-            "TextColor": "#DB7093",
-            "TextBold": True,
-            "TextItalic": False,
-            "BackgroundColor": "",
-            "width": "match_parent",
-            "height": "wrap_content",
-            "weight": 2
-            },
+            [
             {
             "type": "LinearLayout",
             "orientation": "vertical",
@@ -113,6 +71,25 @@ def birds_on_start(hashMap,_files=None,_data=None):
             },
             ]
         },
+
+        {
+            "type": "Picture",
+            "show_by_condition": "",
+            "Value": "@pic",
+            "NoRefresh": False,
+            "document_type": "",
+            "mask": "",
+            "Variable": "",
+            "TextSize": "16",
+            "TextColor": "#DB7093",
+            "TextBold": True,
+            "TextItalic": False,
+            "BackgroundColor": "",
+            "width": "match_parent",
+            "height": "wrap_content",
+            "weight": 2
+            },
+
         {
             "type": "TextView",
             "show_by_condition": "",
@@ -135,9 +112,9 @@ def birds_on_start(hashMap,_files=None,_data=None):
 
 }
 }   
-    # with open('db.json', encoding='utf-8') as db:
-    #     db = json.load(db)
-    # print(db['birds'])
+    with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
+        birds = json.load(db)
+    print(birds['birds'])
     j["customcards"]["cardsdata"]=[]
     for i in birds['birds']:
         commit =  {
@@ -147,9 +124,6 @@ def birds_on_start(hashMap,_files=None,_data=None):
         "image": i['image']
     }
         j["customcards"]["cardsdata"].append(commit)
-
-    with open('test.txt', 'w', encoding='utf-8') as file:
-            file.write(str(j))
 
     hashMap.put("cards",json.dumps(j,ensure_ascii=False).encode('utf8').decode())
 
@@ -175,4 +149,3 @@ def test_inp(name:str, desc:str):
         print(f'Добавлено{name},{desc} ', db)
     pass
 
-test_inp('Куртца', 'Это курица')
