@@ -1,7 +1,6 @@
 from PIL import Image
-import json, random, os
-
-filename = ()
+import json
+from ru.travelfood.simple_ui import NoSQL as noClass
 
 def birds_on_start(hashMap,_files=None,_data=None):
     j = { "customcards":         {
@@ -11,6 +10,8 @@ def birds_on_start(hashMap,_files=None,_data=None):
         },
 
         "layout": {
+
+
         "type": "LinearLayout",
         "orientation": "vertical",
         "height": "match_parent",
@@ -25,7 +26,23 @@ def birds_on_start(hashMap,_files=None,_data=None):
             "weight": "0",
             "Elements": 
 
-            [
+            [            {   
+                "type": "Picture",
+                "show_by_condition": "",
+                "Value": "@image",
+                "NoRefresh": False,
+                "document_type": "",
+                "mask": "",
+                "Variable": "",
+                "TextSize": "16",
+                "TextColor": "#DB7093",
+                "TextBold": True,
+                "TextItalic": False,
+                "BackgroundColor": "",
+                "width": "75",
+                "height": "75",
+                "weight": 0
+            },
             {
             "type": "LinearLayout",
             "orientation": "vertical",
@@ -51,23 +68,6 @@ def birds_on_start(hashMap,_files=None,_data=None):
                 "document_type": "",
                 "mask": "",
                 "Variable": ""
-            },
-            {   
-                "type": "Picture",
-                "show_by_condition": "",
-                "Value": "@image",
-                "NoRefresh": False,
-                "document_type": "",
-                "mask": "",
-                "Variable": "",
-                "TextSize": "16",
-                "TextColor": "#DB7093",
-                "TextBold": True,
-                "TextItalic": False,
-                "BackgroundColor": "",
-                "width": "75",
-                "height": "75",
-                "weight": 0
             }]
 
             },
@@ -115,7 +115,6 @@ def birds_on_start(hashMap,_files=None,_data=None):
 
 
 def input_data(hashMap,_files=None,_data=None):
-    global filename
     if hashMap.get("listener")=="btn_post":
         with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
             db = json.load(db)
