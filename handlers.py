@@ -1,6 +1,5 @@
 from PIL import Image
 import json
-from java import jclass
 
 
 
@@ -74,24 +73,6 @@ def birds_on_start(hashMap,_files=None,_data=None):
 
             },
             ]
-        },
-
-        {
-            "type": "TextView",
-            "show_by_condition": "",
-            "Value": "@desc",
-            "NoRefresh": False,
-            "document_type": "",
-            "mask": "",
-            "Variable": "",
-            "TextSize": "-1",
-            "TextColor": "#6F9393",
-            "TextBold": False,
-            "TextItalic": True,
-            "BackgroundColor": "",
-            "width": "wrap_content",
-            "height": "wrap_content",
-            "weight": 0
         }
         ]
     }
@@ -120,7 +101,8 @@ def input_data(hashMap,_files=None,_data=None):
     if hashMap.get("listener")=="btn_post":
         with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
             db = json.load(db)
-        commit = {"name": hashMap.get("input_name"),
+        commit = { "id": str(len(db['birds'])+1),
+                    "name": hashMap.get("input_name"),
                   "desc": hashMap.get("input_desc"),
                   "image": hashMap.get("photo"),
                   "status": "false"}
@@ -146,17 +128,29 @@ def test_db(hashMap,_files=None,_data=None):
         ncl.put("birds",json.dumps(commit,ensure_ascii=False),True)
         return hashMap
     
-def work_with_birds(hashMap,_files=None,_data=None):
-    if hashMap.get("listener")=="btn_post":
-        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
-            db = json.load(db)
-        commit = {"name": hashMap.get("input_name"),
-                  "desc": hashMap.get("input_desc"),
-                  "image": hashMap.get("photo"),
-                  "status": "false"}
-        db["birds"].append(commit)
-        with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
-            json.dump(db, fp, ensure_ascii=False)    
+# def work_with_birds(hashMap,_files=None,_data=None):
+#     if hashMap.get("listener")=="btn_post":
+#         with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
+#             db = json.load(db)
+#         commit = {"name": hashMap.get("input_name"),
+#                   "desc": hashMap.get("input_desc"),
+#                   "image": hashMap.get("photo"),
+#                   "status": "false"}
+#         db["birds"].append(commit)
+#         with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
+#             json.dump(db, fp, ensure_ascii=False)    
 
-        hashMap.put("cards",json.dumps(commit,ensure_ascii=False).encode('utf8').decode())
-        return hashMap
+#         hashMap.put("cards",json.dumps(commit,ensure_ascii=False).encode('utf8').decode())
+#         return hashMap
+    
+
+
+class Db:
+    def __init__(self,):
+        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
+            self.db = json.load(db)
+
+    def put_add_data(self, ):
+
+
+        pass
