@@ -1,6 +1,8 @@
 from PIL import Image
 import json
-from ru.travelfood.simple_ui import NoSQL as noClass
+from java import jclass
+
+
 
 def birds_on_start(hashMap,_files=None,_data=None):
     j = { "customcards":         {
@@ -126,4 +128,35 @@ def input_data(hashMap,_files=None,_data=None):
         with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
             json.dump(db, fp, ensure_ascii=False)
 
+        return hashMap
+
+def test_db(hashMap,_files=None,_data=None):
+    
+
+    noClass = jclass("ru.travelfood.simple_ui.NoSQL")
+
+    ncl = noClass("/storage/emulated/0/Android/data/ru.travelfood.simple_ui/nosql_db")
+    
+    if hashMap.get("listener")=="btn_post1":
+        commit = {
+                    "name": hashMap.get("input_name"),
+                    "desc": hashMap.get("input_desc"),
+                    "image": hashMap.get("photo"),
+                    "status": "false"}
+        ncl.put("birds",json.dumps(commit,ensure_ascii=False),True)
+        return hashMap
+    
+def work_with_birds(hashMap,_files=None,_data=None):
+    if hashMap.get("listener")=="btn_post":
+        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
+            db = json.load(db)
+        commit = {"name": hashMap.get("input_name"),
+                  "desc": hashMap.get("input_desc"),
+                  "image": hashMap.get("photo"),
+                  "status": "false"}
+        db["birds"].append(commit)
+        with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
+            json.dump(db, fp, ensure_ascii=False)    
+
+        hashMap.put("cards",json.dumps(commit,ensure_ascii=False).encode('utf8').decode())
         return hashMap
