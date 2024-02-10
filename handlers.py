@@ -1,6 +1,7 @@
 from PIL import Image
 import json
-from ru.travelfood.simple_ui import NoSQL as noClass
+
+id = []
 
 def birds_on_start(hashMap,_files=None,_data=None):
     j = { "customcards":         {
@@ -115,15 +116,26 @@ def birds_on_start(hashMap,_files=None,_data=None):
 
 
 def input_data(hashMap,_files=None,_data=None):
+    global id
+    proxy_list = []
     if hashMap.get("listener")=="btn_post":
         with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
             db = json.load(db)
-        commit = {"name": hashMap.get("input_name"),
-                  "desc": hashMap.get("input_desc"),
-                  "image": hashMap.get("photo"),
-                  "status": "false"}
+        commit = { 
+                    'id': str(len(db['birds'])),
+                    "name": hashMap.get("input_name"),
+                    "desc": hashMap.get("input_desc"),
+                    "image": hashMap.get("photo"),
+                    "status": "false"}
         db["birds"].append(commit)
         with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
             json.dump(db, fp, ensure_ascii=False)
 
-        return hashMap
+    if hashMap.get("listener")=="CardsClick":
+        id = hashMap.get("selected_card_key")
+        proxy_list.append(id)
+        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/text.json', 'w', encoding='utf-8') as text:
+            json.dump(proxy_list, text, ensure_ascii=False)
+        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
+            db = json.load(db)
+        db_pos = db["birds"][id]
