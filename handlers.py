@@ -1,7 +1,7 @@
 from PIL import Image
-import json
+import json, datetime
 
-id = []
+id = ''
 
 def birds_on_start(hashMap,_files=None,_data=None):
     j = { "customcards":         {
@@ -74,24 +74,6 @@ def birds_on_start(hashMap,_files=None,_data=None):
             },
             ]
         },
-
-        {
-            "type": "TextView",
-            "show_by_condition": "",
-            "Value": "@desc",
-            "NoRefresh": False,
-            "document_type": "",
-            "mask": "",
-            "Variable": "",
-            "TextSize": "-1",
-            "TextColor": "#6F9393",
-            "TextBold": False,
-            "TextItalic": True,
-            "BackgroundColor": "",
-            "width": "wrap_content",
-            "height": "wrap_content",
-            "weight": 0
-        }
         ]
     }
 
@@ -117,7 +99,7 @@ def birds_on_start(hashMap,_files=None,_data=None):
 
 def input_data(hashMap,_files=None,_data=None):
     global id
-    proxy_list = []
+    # прокси лист - переменная для получения карточки
     if hashMap.get("listener")=="btn_post":
         with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
             db = json.load(db)
@@ -130,12 +112,122 @@ def input_data(hashMap,_files=None,_data=None):
         db["birds"].append(commit)
         with open('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', 'w', encoding='utf-8') as fp:
             json.dump(db, fp, ensure_ascii=False)
+            return hashMap
 
     if hashMap.get("listener")=="CardsClick":
-        id = hashMap.get("selected_card_key")
-        proxy_list.append(id)
-        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/text.json', 'w', encoding='utf-8') as text:
-            json.dump(proxy_list, text, ensure_ascii=False)
-        with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/db.json', encoding='utf-8') as db:
-            db = json.load(db)
-        db_pos = db["birds"][id]
+        geted = hashMap.get("selected_card_key")
+        dt_now = datetime.datetime.now()
+        format = str(geted).replace("'", "\"")
+        test = json.loads(format)
+
+        test['date'] = str(dt_now.strftime('%Y-%m-%d-%H:%M:%S'))
+    
+        id = str(test)
+        return hashMap
+
+
+def birds_seen(hashMap,_files=None,_data=None):
+    global id
+    
+    cards = { "customcards":         {
+        "options":{
+          "search_enabled":True,
+          "save_position":True
+        },
+
+        "layout": {
+
+
+        "type": "LinearLayout",
+        "orientation": "vertical",
+        "height": "match_parent",
+        "width": "match_parent",
+        "weight": "0",
+        "Elements": [
+        {
+            "type": "LinearLayout",
+            "orientation": "horizontal",
+            "height": "wrap_content",
+            "width": "match_parent",
+            "weight": "0",
+            "Elements": 
+
+            [            {   
+                "type": "Picture",
+                "show_by_condition": "",
+                "Value": "@image",
+                "NoRefresh": False,
+                "document_type": "",
+                "mask": "",
+                "Variable": "",
+                "TextSize": "16",
+                "TextColor": "#DB7093",
+                "TextBold": True,
+                "TextItalic": False,
+                "BackgroundColor": "",
+                "width": "75",
+                "height": "75",
+                "weight": 0
+            },
+            {
+            "type": "LinearLayout",
+            "orientation": "vertical",
+            "height": "wrap_content",
+            "width": "match_parent",
+            "weight": "1",
+            "Elements": 
+
+            [{
+                "type": "TextView",
+                "show_by_condition": "",
+                "Value": "@name",
+                "NoRefresh": False,
+                "document_type": "",
+                "mask": "",
+                "Variable": ""
+            },
+            {
+                "type": "TextView",
+                "show_by_condition": "",
+                "Value": "@desc",
+                "NoRefresh": False,
+                "document_type": "",
+                "mask": "",
+                "Variable": ""
+            },
+            {
+                "type": "TextView",
+                "show_by_condition": "",
+                "Value": "@date",
+                "NoRefresh": False,
+                "document_type": "",
+                "mask": "",
+                "Variable": ""
+            },
+            ]
+
+            },
+            
+            ]
+        },
+        ]
+    }
+
+}
+}   
+    
+    data = json.loads(id.replace("'", "\""))
+    with open ('/storage/emulated/0/Android/data/ru.travelfood.simple_ui/files/text1.json', 'w', encoding='utf-8') as text:
+            json.dump(data, text, ensure_ascii=False)
+    cards["customcards"]["cardsdata"]=[]
+    commit =  {
+    "key": str(data),
+    "name": data["name"],
+    "desc": data['desc'],
+    "image": data['image'],
+    "date": data['date']}
+
+    cards["customcards"]["cardsdata"].append(commit)
+
+    hashMap.put("cards1",json.dumps(cards,ensure_ascii=False).encode('utf8').decode())
+    return hashMap
